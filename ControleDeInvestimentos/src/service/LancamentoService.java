@@ -1,5 +1,6 @@
 package service;
 
+import model.Lancamento;
 import model.TipoLancamento;
 import repository.LancamentoRepository;
 
@@ -20,6 +21,12 @@ public class LancamentoService {
                 .mapToDouble(l -> l.getTipo() == TipoLancamento.RECEITA
                 ? l.getValor() :
                 -l.getValor())
+                .sum();
+    }
+
+    public double calcularTotalInvestido() {
+        return repository.listarPorTipo(TipoLancamento.INVESTIMENTO).stream()
+                .mapToDouble(Lancamento::getValor)
                 .sum();
     }
 
