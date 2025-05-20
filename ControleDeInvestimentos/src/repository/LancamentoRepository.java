@@ -8,7 +8,7 @@ import java.util.List;
 
 public class LancamentoRepository {
 
-    private List<Lancamento> lancamentos - new ArrayList<>();
+    private List<Lancamento> lancamentos = new ArrayList<>();
     private long proximoId = 1;
 
     public void adicionar(Lancamento lancamento){
